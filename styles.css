@@ -1,0 +1,87 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.video-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Fullscreen Video */
+#background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    background-size: cover;
+    filter: brightness(0.7);  /* Optional: makes overlay content stand out */
+    animation: zoomIn 10s infinite alternate; /* Slow zoom-in animation */
+}
+
+/* Keyframes for smooth zoom animation */
+@keyframes zoomIn {
+    0% {
+        transform: scale(1) translate(-50%, -50%);
+    }
+    100% {
+        transform: scale(1.05) translate(-50%, -50%);
+    }
+}
+
+/* Overlay Content */
+.overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    opacity: 0;
+    animation: fadeIn 2s forwards; /* Fade-in animation */
+}
+
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.overlay-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.overlay-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff6347;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff4500;
+    transform: scale(1.1);
+}
